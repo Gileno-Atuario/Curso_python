@@ -1,12 +1,18 @@
 palavra_secreta = 'FUTEBOL'
+total_letras = len(palavra_secreta)
 letras_certas = ''
-
+tentativas = 0
+total_tentativas = 15
+print(f'-----JOGO DA FORCA-----\nA palavra secreta possui {total_letras} letras.\n'
+      f'Você possui {total_tentativas} chances.\nBoa Sorte!\n')
 
 while True:
 
     letra_digitada = input('Digite uma letra: ').strip()
     letra_trabalhada = letra_digitada.upper()
     visualizacao = ''
+    tentativas += 1
+    chances = total_tentativas - tentativas
 
     if len(letra_trabalhada) != 1 or not letra_trabalhada.isalpha():
         print('Digite apenas um letra!\n')
@@ -24,9 +30,14 @@ while True:
         else:
             visualizacao += '*'
 
-    print(f'{visualizacao}\n')
+    print(f'\t\t{visualizacao}\n')
 
-    if visualizacao == palavra_secreta:
-        print('PARABÉNS🎉🎉🎉')
+    if chances < 0:
+        print('VOCÊ PERDEU! TENTE OUTRA VEZ!')
         quit()
 
+    if visualizacao == palavra_secreta:
+        print('VOCÊ GANHOU! PARABÉNS!🎉🎉🎉')
+        quit()
+
+    print(f'Ainda lhe resta {chances} chanche(s).\n')
