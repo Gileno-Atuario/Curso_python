@@ -1,18 +1,18 @@
-palavra_secreta = 'FUTEBOL'
-total_letras = len(palavra_secreta)
-letras_certas = ''
-tentativas = 0
-total_tentativas = 15
+palavra_secreta = 'FUTEBOL'  # Definindo a palavra a ser descoberta
+total_letras = len(palavra_secreta)  # Criando variavel com o total de letras
+letras_certas = ''  # Criando variável que receberá as letras certas
+tentativas = 0  # Criando variável tentativa, que receberá a qtd de oportunidades utilizadas
+limite_tentativas = 15  # Criando a variável definindo o limite de chances.
 print(f'-----JOGO DA FORCA-----\nA palavra secreta possui {total_letras} letras.\n'
-      f'Você possui {total_tentativas} chances.\nBoa Sorte!\n')
+      f'Você possui {limite_tentativas} chances.\nBoa Sorte!\n')
 
 while True:
 
     letra_digitada = input('Digite uma letra: ').strip()
     letra_trabalhada = letra_digitada.upper()
-    visualizacao = ''
+    visualizacao = ''  # Será os dados a serem a presentados
     tentativas += 1
-    chances = total_tentativas - tentativas
+    chances = limite_tentativas - tentativas
 
     if len(letra_trabalhada) != 1 or not letra_trabalhada.isalpha():
         print('Digite apenas um letra!\n')
